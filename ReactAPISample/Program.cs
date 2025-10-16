@@ -14,6 +14,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddEndpointsApiExplorer();
+
+// swagger da bearer token test etmek swagger ui eklentisini ayarladýk.
+// JWT haberlþemesine Bearer Scheme ile haberleþme diyoruz.
 builder.Services.AddSwaggerGen(opt =>
 {
 
@@ -67,6 +70,7 @@ builder.Services.AddCors(builder =>
 
 var key = Encoding.ASCII.GetBytes("6686060c32afbfe6b4d22a38d5ee4a4cceb32e2e361ed20b61eed839a67688509396598f98eb186c51f5f4f913d2afb6628ec8b32e3236ab5a3c9e5aba9abd0d");
 
+// Validator Service
 // Jwt Authentication tanýmlandý.
 builder.Services.AddAuthentication(x =>
 {

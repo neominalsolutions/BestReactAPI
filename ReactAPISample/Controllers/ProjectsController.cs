@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ReactAPISample.Dtos;
 using ReactAPISample.Services;
@@ -7,6 +9,8 @@ namespace ReactAPISample.Controllers
 {
   [Route("api/[controller]")]
   [ApiController]
+  // projects controllera jwt göndermeden giremeyiz
+  [Authorize(AuthenticationSchemes =JwtBearerDefaults.AuthenticationScheme)]
   public class ProjectsController : ControllerBase
   {
     private readonly ProjectService _projectService;
@@ -19,6 +23,7 @@ namespace ReactAPISample.Controllers
     // api/projects -> GET
 
     [HttpGet]
+    [Authorize(Roles ="Manager")] // jwt içinde böyle bir role sahip değilizi 403 almamız lazım.
     public IActionResult getAllProjectParameters()
     {
       var data  = _projectService.getAllProjectParameters();

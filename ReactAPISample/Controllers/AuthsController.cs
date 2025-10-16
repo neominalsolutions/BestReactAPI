@@ -17,6 +17,9 @@ namespace ReactAPISample.Controllers
     // 2. aşama Token Validate ve Authentication aşaması
     // 3. aşamada Authorization aşaması (Role bazlı yetkilendirme)
 
+    // Generator Service 
+    // User-Role dblerine bağlanıp kullanıcı otorumları için token üretmek
+    // IdentityAPI 
     // api/auths/token
     [HttpPost("token")]
     public IActionResult token([FromBody] TokenRequestDto request)
