@@ -23,7 +23,7 @@ namespace ReactAPISample.Controllers
     // api/projects -> GET
 
     [HttpGet]
-    [Authorize(Roles ="Manager")] // jwt içinde böyle bir role sahip değilizi 403 almamız lazım.
+    //[Authorize(Roles ="Manager")] // jwt içinde böyle bir role sahip değilizi 403 almamız lazım.
     public IActionResult getAllProjectParameters()
     {
       var data  = _projectService.getAllProjectParameters();
